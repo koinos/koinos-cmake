@@ -67,7 +67,7 @@ if(${CMAKE_GENERATOR} MATCHES "Xcode")
   set(CMAKE_XCODE_GENERATE_SCHEME YES)
 endif()
 
-include(BoostTestTargets)
+include(KoinosTestTargets)
 include(KoinosUnitTests)
 
 macro(koinos_coverage)
