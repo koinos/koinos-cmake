@@ -115,7 +115,6 @@ function(add_boost_test _name)
 			"Syntax error in use of add_boost_test: at least one source file required!")
 	endif()
 
-	message(STATUS "BOOST FOUND TEST: ${Boost_FOUND}")
 	if(TRUE)
 
 		# include_directories(${Boost_INCLUDE_DIRS})
