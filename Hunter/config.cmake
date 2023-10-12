@@ -61,8 +61,8 @@ hunter_config(yaml-cpp
 )
 
 hunter_config(ethash
-   URL "https://github.com/chfast/ethash/archive/refs/tags/v0.8.0.tar.gz"
-   SHA1 "41fd440f70b6a8dfc3fd29b20f471dcbd1345ad0"
+   URL "https://github.com/chfast/ethash/archive/refs/tags/v1.0.1.tar.gz"
+   SHA1 "e8dabf60ce215b6763191ffd0ac835b89b7de5e0"
    CMAKE_ARGS
       CMAKE_CXX_STANDARD=17
       CMAKE_CXX_STANDARD_REQUIRED=ON
