@@ -12,6 +12,18 @@ if(CCACHE_PROGRAM)
   set(CMAKE_XCODE_ATTRIBUTE_LDPLUSPLUS   "${CMAKE_SOURCE_DIR}/ci/ccache_clang++")
 endif()
 
+option(STATIC_ANALYSIS "Run static analysis during build" OFF)
+
+if (STATIC_ANALYSIS)
+  find_program(CLANG_TIDY clang-tidy)
+  if (CLANG_TIDY)
+    set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY};--warnings-as-errors=*;--checks=*)
+    set(CMAKE_C_CLANG_TIDY ${CLANG_TIDY};--warnings-as-errors=*;--checks=*)
+  elseif()
+    message(WARNING "Static analysis was requested but clang-tidy was not found")
+  endif()
+endif()
+
 option(HUNTER_RUN_UPLOAD "Upload Hunter packages to binary cache server" OFF)
 
 set(
@@ -85,6 +97,12 @@ macro(koinos_coverage)
       EXECUTABLE ${KOINOS_COVERAGE_EXECUTABLE}
       EXCLUDE ${KOINOS_COVERAGE_EXCLUDE})
   endif()
+endmacro()
+
+macro(koinos_define_version)
+  add_compile_definitions(KOINOS_MAJOR_VERSION=${PROJECT_VERSION_MAJOR})
+  add_compile_definitions(KOINOS_MINOR_VERSION=${PROJECT_VERSION_MINOR})
+  add_compile_definitions(KOINOS_PATCH_VERSION=${PROJECT_VERSION_PATCH})
 endmacro()
 
 function(koinos_add_package PACKAGE)
