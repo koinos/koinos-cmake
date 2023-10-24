@@ -81,6 +81,7 @@ endif()
 
 include(KoinosTestTargets)
 include(KoinosUnitTests)
+include(KoinosFormat)
 
 macro(koinos_coverage)
   set(options)
