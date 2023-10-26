@@ -110,43 +110,50 @@ hunter_config(ZLIB
 )
 
 hunter_config(koinos_log
-   GIT_SUBMODULE "libraries/log"
+   URL  "https://github.com/koinos/koinos-log-cpp/archive/89b59cd48bd4e41ca1d377890af1de3d393f60f8.tar.gz"
+   SHA1 "165c4ccf8c7f1ac2d03c450fbc9ed415447e35f9"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_util
-   GIT_SUBMODULE "libraries/util"
+   URL  "https://github.com/koinos/koinos-util-cpp/archive/dd3e15f0b08a99082b736b901bb78c0af4ed1982.tar.gz"
+   SHA1 "e5b475c10885dc5426c16a3e1122267b4a1668e1"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_proto
-   GIT_SUBMODULE "libraries/proto"
+   URL  "https://github.com/koinos/koinos-proto-cpp/archive/db90e99d6f8997861db6083efb8d0805bcd51d48.tar.gz"
+   SHA1 "366952245578b37bc9991e0994b7585334de7d95"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_exception
-   GIT_SUBMODULE "libraries/exception"
+   URL  "https://github.com/koinos/koinos-exception-cpp/archive/5501569e8bec1c97ddc1257e25ec1149bc2b50e9.tar.gz"
+   SHA1 "5c6966904fa5d28b7ea86194ef2fb4ce68fbdb59"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_crypto
-   GIT_SUBMODULE "libraries/crypto"
+   URL  "https://github.com/koinos/koinos-crypto-cpp/archive/2f91acfd683b824439b9844095cdc2e89f371037.tar.gz"
+   SHA1 "88a3d6f6a6d029aa287f85acb4a878dc844818b1"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_mq
-   GIT_SUBMODULE "libraries/mq"
+   URL  "https://github.com/koinos/koinos-mq-cpp/archive/f5cdac05a46f9a3e5b8310559f6520d9b53ca9ca.tar.gz"
+   SHA1 "342a62bfa72531a6defc5ace36efec0a095cf002"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_state_db
-   GIT_SUBMODULE "libraries/state_db"
+   URL  "https://github.com/koinos/koinos-state-db-cpp/archive/8e9d50ed51389363d3b3fc989c3374c27ecb3534.tar.gz"
+   SHA1 "cf64ee62873e17a1146cd77d8c155bf0d9340ac9"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )

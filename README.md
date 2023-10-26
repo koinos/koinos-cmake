@@ -1,1 +1,1 @@
-# koinos-repo-template
+# Koinos CMake project
