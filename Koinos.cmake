@@ -20,7 +20,7 @@ if (STATIC_ANALYSIS)
     set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY};--warnings-as-errors=*;--checks=*)
     set(CMAKE_C_CLANG_TIDY ${CLANG_TIDY};--warnings-as-errors=*;--checks=*)
   elseif()
-    message(WARNING "Static analysis was requested but clang-tidy was not found")
+    message(FATAL_ERROR "Static analysis was requested but clang-tidy was not found")
   endif()
 endif()
 
