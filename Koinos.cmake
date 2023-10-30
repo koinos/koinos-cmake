@@ -16,7 +16,11 @@ option(STATIC_ANALYSIS "Run static analysis during build" OFF)
 
 if (STATIC_ANALYSIS)
   find_program(CLANG_TIDY clang-tidy)
-  if (CLANG_TIDY)
+
+  if (NOT CLANG_TIDY)
+    message(FATAL_ERROR "Static analysis was requested but 'clang-tidy' was not found")
+  endif()
+
   set(CMAKE_CXX_CLANG_TIDY ${CLANG_TIDY};
     --warnings-as-errors=*;
     --checks=portability-*,clang-analyzer-*,clang-analyzer-cplusplus*;
@@ -25,9 +29,7 @@ if (STATIC_ANALYSIS)
     --warnings-as-errors=*;
     --checks=portability-*,clang-analyzer-*;
     --header-filter=.*)
-  elseif()
-    message(FATAL_ERROR "Static analysis was requested but clang-tidy was not found")
-  endif()
+
 endif()
 
 option(HUNTER_RUN_UPLOAD "Upload Hunter packages to binary cache server" OFF)
