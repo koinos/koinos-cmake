@@ -1,11 +1,17 @@
 find_program(CLANG_FORMAT clang-format)
 
-add_custom_target(format.check)
-add_custom_Target(format.fix)
+if (NOT CLANG_FORMAT)
+  message(STATUS "Configuring project without formatting targets, install 'clang-format' to enable")
+elseif()
+  add_custom_target(format.check)
+  add_custom_Target(format.fix)
+endif()
 
 function(koinos_add_format_target NAME)
   
-  if (CLANG_FORMAT)
+  if (NOT CLANG_FORMAT)
+    message(DEBUG "No formatting target created for ${NAME}, install 'clang-format' to enable")
+  elseif()
     get_target_property(TARGET_SOURCES ${NAME} SOURCES)
     get_target_property(TARGET_SOURCE_DIR ${NAME} SOURCE_DIR)
     list(TRANSFORM TARGET_SOURCES PREPEND "${TARGET_SOURCE_DIR}/")
