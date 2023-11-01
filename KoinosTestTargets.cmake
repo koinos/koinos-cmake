@@ -36,41 +36,6 @@
 # (See accompanying file LICENSE_1_0.txt or copy at
 # http://www.boost.org/LICENSE_1_0.txt)
 
-# if(__add_boost_test)
-# 	return()
-# endif()
-# set(__add_boost_test YES)
-
-# set(BOOST_TEST_TARGET_PREFIX "boosttest")
-
-# if(NOT Boost_FOUND)
-# 	find_package(Boost QUIET)
-# endif()
-
-include(GetForceIncludeDefinitions)
-include(CopyResourcesToBuildTree)
-
-set(_boosttesttargets_libs)
-set(_boostConfig "BoostTestTargetsIncluded.h")
-if(NOT Boost_UNIT_TEST_FRAMEWORK_LIBRARY)
-  find_package(Boost QUIET COMPONENTS unit_test_framework)
-endif()
-if(Boost_UNIT_TEST_FRAMEWORK_LIBRARY)
-  set(_boosttesttargets_libs "${Boost_UNIT_TEST_FRAMEWORK_LIBRARY}")
-  if(Boost_USE_STATIC_LIBS)
-    set(_boostConfig "BoostTestTargetsStatic.h")
-  else()
-    if(NOT APPLE)
-      set(_boostConfig "BoostTestTargetsDynamic.h")
-    endif()
-  endif()
-endif()
-get_filename_component(_moddir ${CMAKE_CURRENT_LIST_FILE} PATH)
-configure_file("${_moddir}/${_boostConfig}"
-  "${CMAKE_CURRENT_BINARY_DIR}/BoostTestTargetConfig.h"
-  COPYONLY)
-include_directories("${CMAKE_CURRENT_BINARY_DIR}")
-
 function(koinos_add_test _name)
 	if(NOT BUILD_TESTING)
 		return()
@@ -124,14 +89,6 @@ function(koinos_add_test _name)
       set(includeType INCLUDED)
       set(includeFileLoc ${src})
       set(_boosttesttargets_libs)	# clear this out - linking would be a bad idea
-      if(NOT
-        "${thefile}"
-        MATCHES
-        ".*OVERRIDE_BOOST_TEST_INCLUDED_WARNING.*")
-        message("Please replace the include line in ${src} with this alternate include line instead:")
-        message("  \#include <BoostTestTargetConfig.h>")
-        message("Once you've saved your changes, re-run CMake. (See BoostTestTargets.cmake for more info)")
-      endif()
       break()
     endif()
   endforeach()
