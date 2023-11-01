@@ -1,7 +1,7 @@
 find_program(CLANG_FORMAT clang-format)
 
 if (NOT CLANG_FORMAT)
-  message(STATUS "Configuring project without formatting targets, install 'clang-format' to enable")
+  message(DEBUG "Configuring project without formatting targets, install 'clang-format' to enable")
 elseif()
   add_custom_target(format.check)
   add_custom_Target(format.fix)
