@@ -158,6 +158,9 @@ function(koinos_add_test _name)
     set(_test_command ${_target_name})
   endif()
 
+  get_target_property(TARGET_SOURCES ${_name} SOURCES)
+  koinos_parse_unit_tests(TESTS ${TARGET_SOURCES})
+
   if(TESTS)
     foreach(_test ${TESTS})
       add_test(

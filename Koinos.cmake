@@ -22,7 +22,6 @@ HunterGate(
 include(KoinosCompilerOptions)
 include(KoinosStaticAnalysis)
 include(KoinosCoverage)
-include(KoinosTestTargets)
 include(KoinosUnitTests)
 include(KoinosFormat)
 include(KoinosAddPackage)
