@@ -15,8 +15,8 @@ hunter_config(Protobuf
 )
 
 hunter_config(rocksdb
-   URL "https://github.com/facebook/rocksdb/archive/v6.15.2.tar.gz"
-   SHA1 "daf7ef3946fd39c910acaaa57789af8515b39251"
+   URL "https://github.com/facebook/rocksdb/archive/v8.8.1.tar.gz"
+   SHA1 "ef3e82eb750013c9fec5220911213609613776d7"
    CMAKE_ARGS
       WITH_TESTS=OFF
       WITH_TOOLS=OFF
@@ -124,8 +124,8 @@ hunter_config(koinos_util
 )
 
 hunter_config(koinos_proto
-   URL  "https://github.com/koinos/koinos-proto-cpp/archive/db90e99d6f8997861db6083efb8d0805bcd51d48.tar.gz"
-   SHA1 "366952245578b37bc9991e0994b7585334de7d95"
+   URL  "https://github.com/koinos/koinos-proto-cpp/archive/16fa52a3e29a52edef42e9228b50f5b5035db10b.tar.gz"
+   SHA1 "d867e1e3a079eea078f2fa1f501edebd13efe23e"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
