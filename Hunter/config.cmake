@@ -110,43 +110,43 @@ hunter_config(ZLIB
 )
 
 hunter_config(koinos_log
-   GIT_SUBMODULE "${CMAKE_SOURCE_DIR}/libraries/log"
+   GIT_SUBMODULE "libraries/log"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_util
-   GIT_SUBMODULE "${CMAKE_SOURCE_DIR}/libraries/util"
+   GIT_SUBMODULE "libraries/util"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_proto
-   GIT_SUBMODULE "${CMAKE_SOURCE_DIR}/libraries/proto"
+   GIT_SUBMODULE "libraries/proto"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_exception
-   GIT_SUBMODULE "${CMAKE_SOURCE_DIR}/libraries/exception"
+   GIT_SUBMODULE "libraries/exception"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_crypto
-   GIT_SUBMODULE "${CMAKE_SOURCE_DIR}/libraries/crypto"
+   GIT_SUBMODULE "libraries/crypto"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_mq
-   GIT_SUBMODULE "${CMAKE_SOURCE_DIR}/libraries/mq"
+   GIT_SUBMODULE "libraries/mq"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
 
 hunter_config(koinos_state_db
-   GIT_SUBMODULE "${CMAKE_SOURCE_DIR}/libraries/state_db"
+   GIT_SUBMODULE "libraries/state_db"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
