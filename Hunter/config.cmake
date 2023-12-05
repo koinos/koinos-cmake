@@ -109,44 +109,58 @@ hunter_config(ZLIB
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
-hunter_config(koinos_log
-   GIT_SUBMODULE "libraries/log"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/log")
+   hunter_config(koinos_log
+      GIT_SUBMODULE "libraries/log"
+      CMAKE_ARGS
+         BUILD_TESTS=OFF
+   )
+endif()
 
-hunter_config(koinos_util
-   GIT_SUBMODULE "libraries/util"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/util")
+   hunter_config(koinos_util
+      GIT_SUBMODULE "libraries/util"
+      CMAKE_ARGS
+         BUILD_TESTS=OFF
+   )
+endif()
 
-hunter_config(koinos_proto
-   GIT_SUBMODULE "libraries/proto"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/proto")
+   hunter_config(koinos_proto
+      GIT_SUBMODULE "libraries/proto"
+      CMAKE_ARGS
+         BUILD_TESTS=OFF
+   )
+endif()
 
-hunter_config(koinos_exception
-   GIT_SUBMODULE "libraries/exception"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/exception")
+   hunter_config(koinos_exception
+      GIT_SUBMODULE "libraries/exception"
+      CMAKE_ARGS
+         BUILD_TESTS=OFF
+   )
+endif()
 
-hunter_config(koinos_crypto
-   GIT_SUBMODULE "libraries/crypto"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/crypto")
+   hunter_config(koinos_crypto
+      GIT_SUBMODULE "libraries/crypto"
+      CMAKE_ARGS
+         BUILD_TESTS=OFF
+   )
+endif()
 
-hunter_config(koinos_mq
-   GIT_SUBMODULE "libraries/mq"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/mq")
+   hunter_config(koinos_mq
+      GIT_SUBMODULE "libraries/mq"
+      CMAKE_ARGS
+         BUILD_TESTS=OFF
+   )
+endif()
 
-hunter_config(koinos_state_db
-   GIT_SUBMODULE "libraries/state_db"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/state_db")
+   hunter_config(koinos_state_db
+      GIT_SUBMODULE "libraries/state_db"
+      CMAKE_ARGS
+         BUILD_TESTS=OFF
+   )
+endif()
