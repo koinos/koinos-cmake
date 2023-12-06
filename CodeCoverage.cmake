@@ -241,7 +241,7 @@ function(setup_target_for_coverage_lcov)
   endif()
 
   if (NOT APPLE)
-    set(GCOV_PATH ${CMAKE_CURRENT_LIST_DIR}/Scripts/gcov_for_clang.sh)
+    set(GCOV_PATH ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/Scripts/gcov_for_clang.sh)
   endif()
 
   # Setup target
