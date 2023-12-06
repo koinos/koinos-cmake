@@ -197,8 +197,6 @@ else()
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
-else()
-
 endif()
 
 if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/state_db")
