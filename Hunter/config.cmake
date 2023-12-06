@@ -116,7 +116,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/log")
          BUILD_TESTS=OFF
    )
 else()
-   hunter_config(koinos_util
+   hunter_config(koinos_log
       URL  "https://github.com/koinos/koinos-log-cpp/archive/89b59cd48bd4e41ca1d377890af1de3d393f60f8.tar.gz"
       SHA1 "165c4ccf8c7f1ac2d03c450fbc9ed415447e35f9"
       CMAKE_ARGS
@@ -131,10 +131,12 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/util")
          BUILD_TESTS=OFF
    )
 else()
-   URL  "https://github.com/koinos/koinos-util-cpp/archive/dd3e15f0b08a99082b736b901bb78c0af4ed1982.tar.gz"
-   SHA1 "e5b475c10885dc5426c16a3e1122267b4a1668e1"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
+   hunter_config(koinos_util
+      URL  "https://github.com/koinos/koinos-util-cpp/archive/dd3e15f0b08a99082b736b901bb78c0af4ed1982.tar.gz"
+      SHA1 "e5b475c10885dc5426c16a3e1122267b4a1668e1"
+      CMAKE_ARGS
+         BUILD_TESTS=OFF
+   )
 endif()
 
 if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/proto")
