@@ -16,7 +16,7 @@ include(HunterGate)
 HunterGate(
   URL "https://github.com/cpp-pm/hunter/archive/v0.25.0.tar.gz"
   SHA1 "a1296b351dbfaf036c92d85c1bdb461f615849fa"
-  FILEPATH "${CMAKE_MODULE_PATH}/Hunter/config.cmake"
+  FILEPATH "${CMAKE_CURRENT_LIST_DIR}/Hunter/config.cmake"
 )
 
 include(KoinosCompilerOptions)
