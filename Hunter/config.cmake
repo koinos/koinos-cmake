@@ -109,9 +109,9 @@ hunter_config(ZLIB
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/log")
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/log")
    hunter_config(koinos_log
-      GIT_SUBMODULE "libraries/log"
+      GIT_SUBMODULE "external/log"
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
@@ -124,24 +124,24 @@ else()
    )
 endif()
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/util")
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/util")
    hunter_config(koinos_util
-      GIT_SUBMODULE "libraries/util"
+      GIT_SUBMODULE "external/util"
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
 else()
    hunter_config(koinos_util
-      URL  "https://github.com/koinos/koinos-util-cpp/archive/dd3e15f0b08a99082b736b901bb78c0af4ed1982.tar.gz"
-      SHA1 "e5b475c10885dc5426c16a3e1122267b4a1668e1"
+      URL  "https://github.com/koinos/koinos-util-cpp/archive/refs/tags/test-tag-1.tar.gz"
+      SHA1 "9a1baa55b1f819ec91a33dee5a89b739d11939c8"
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
 endif()
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/proto")
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/proto")
    hunter_config(koinos_proto
-      GIT_SUBMODULE "libraries/proto"
+      GIT_SUBMODULE "external/proto"
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
@@ -154,9 +154,9 @@ else()
    )
 endif()
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/exception")
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/exception")
    hunter_config(koinos_exception
-      GIT_SUBMODULE "libraries/exception"
+      GIT_SUBMODULE "external/exception"
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
@@ -169,9 +169,9 @@ else()
    )
 endif()
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/crypto")
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/crypto")
    hunter_config(koinos_crypto
-      GIT_SUBMODULE "libraries/crypto"
+      GIT_SUBMODULE "external/crypto"
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
@@ -184,9 +184,9 @@ else()
    )
 endif()
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/mq")
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/mq")
    hunter_config(koinos_mq
-      GIT_SUBMODULE "libraries/mq"
+      GIT_SUBMODULE "external/mq"
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
@@ -199,9 +199,9 @@ else()
    )
 endif()
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/libraries/state_db")
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/state_db")
    hunter_config(koinos_state_db
-      GIT_SUBMODULE "libraries/state_db"
+      GIT_SUBMODULE "external/state_db"
       CMAKE_ARGS
          BUILD_TESTS=OFF
    )
