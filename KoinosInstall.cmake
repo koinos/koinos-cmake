@@ -8,8 +8,6 @@ function(koinos_install)
 
   include(GNUInstallDirs)
 
-  message(INFO "Install targets: ${KOINOS_INSTALL_TARGETS}")
-
   export(
     TARGETS ${KOINOS_INSTALL_TARGETS}
     NAMESPACE Koinos::
