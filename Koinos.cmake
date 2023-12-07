@@ -4,7 +4,7 @@ option(STATIC_ANALYSIS "Run static analysis during build" OFF)
 option(FORCE_COLORED_OUTPUT "Always produce ANSI-colored output (GNU/Clang only)." OFF)
 option(HUNTER_RUN_UPLOAD "Upload Hunter packages to binary cache server" OFF)
 option(COVERAGE "Run code coverage" OFF)
-option(BUILD_TESTS "Build tests" ON)
+option(BUILD_TESTING "Build tests" ON)
 
 set(HUNTER_CACHE_SERVERS "https://github.com/koinos/hunter-cache"
   CACHE STRING "Koinos Hunter cache server")
