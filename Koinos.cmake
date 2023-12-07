@@ -4,6 +4,7 @@ option(STATIC_ANALYSIS "Run static analysis during build" OFF)
 option(FORCE_COLORED_OUTPUT "Always produce ANSI-colored output (GNU/Clang only)." OFF)
 option(HUNTER_RUN_UPLOAD "Upload Hunter packages to binary cache server" OFF)
 option(COVERAGE "Run code coverage" OFF)
+option(BUILD_TESTS "Build tests" ON)
 
 set(HUNTER_CACHE_SERVERS "https://github.com/koinos/hunter-cache"
   CACHE STRING "Koinos Hunter cache server")
@@ -14,8 +15,8 @@ set(HUNTER_PASSWORDS_PATH "${CMAKE_CURRENT_LIST_DIR}/Hunter/passwords.cmake"
 include(HunterGate)
 
 HunterGate(
-  URL "https://github.com/cpp-pm/hunter/archive/v0.25.0.tar.gz"
-  SHA1 "a1296b351dbfaf036c92d85c1bdb461f615849fa"
+  URL "https://github.com/cpp-pm/hunter/archive/v0.25.3.tar.gz"
+  SHA1 "0dfbc2cb5c4cf7e83533733bdfd2125ff96680cb"
   FILEPATH "${CMAKE_CURRENT_LIST_DIR}/Hunter/config.cmake"
 )
 
