@@ -1,11 +1,12 @@
-include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
 
-function(koinos_install)
+macro(koinos_install)
   set(options)
   set(oneValueArgs)
   set(multiValueArgs TARGETS)
   cmake_parse_arguments(KOINOS_INSTALL "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+
+  include(GNUInstallDirs)
 
   export(
     TARGETS ${KOINOS_INSTALL_TARGETS}
@@ -41,4 +42,4 @@ function(koinos_install)
         ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake
     DESTINATION
         ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-endfunction()
+endmacro()
