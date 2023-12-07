@@ -1,6 +1,6 @@
 include(CMakePackageConfigHelpers)
 
-macro(koinos_install)
+function(koinos_install)
   set(options)
   set(oneValueArgs)
   set(multiValueArgs TARGETS)
@@ -42,4 +42,4 @@ macro(koinos_install)
         ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake
     DESTINATION
         ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
-endmacro()
+endfunction()
