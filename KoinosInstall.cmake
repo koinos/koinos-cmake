@@ -26,7 +26,7 @@ function(koinos_install)
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 
   configure_package_config_file(
-    ${CMAKE_CURRENT_LIST_DIR}/Templates/project.cmake.in
+    ${CMAKE_CURRENT_FUNCTION_LIST_DIR}/Templates/project.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}-config.cmake
     INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME})
 
