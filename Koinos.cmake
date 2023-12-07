@@ -28,5 +28,6 @@ include(KoinosAddPackage)
 include(KoinosVersion)
 include(KoinosGenerator)
 include(KoinosGit)
+include(KoinosInstall)
 
 koinos_add_git_target()
