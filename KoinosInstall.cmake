@@ -6,6 +6,10 @@ function(koinos_install)
   set(multiValueArgs TARGETS)
   cmake_parse_arguments(KOINOS_INSTALL "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
+  foreach(TARGET ${KOINOS_INSTALL_TARGETS})
+    set_target_properties(${TARGET} PROPERTIES PREFIX "libkoinos_")
+  endforeach()
+
   include(GNUInstallDirs)
 
   export(
