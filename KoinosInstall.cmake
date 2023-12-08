@@ -7,6 +7,10 @@ function(koinos_install)
   cmake_parse_arguments(KOINOS_INSTALL "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
   foreach(TARGET ${KOINOS_INSTALL_TARGETS})
+    if (NOT TARGET ${TARGET})
+      message(FATAL_ERROR "A non-existent or invalid target has been passed to koinos_install(): ${TARGET}")
+    endif()
+
     set_target_properties(${TARGET} PROPERTIES PREFIX "libkoinos_")
   endforeach()
 
