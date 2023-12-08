@@ -1,3 +1,7 @@
+if(COVERAGE)
+  add_compile_options(-g -fprofile-arcs -ftest-coverage)
+endif()
+
 macro(koinos_coverage)
   set(options)
   set(oneValueArgs EXECUTABLE)
