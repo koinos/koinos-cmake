@@ -162,8 +162,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/exception")
    )
 else()
    hunter_config(koinos_exception
-      URL  "https://github.com/koinos/koinos-exception-cpp/archive/5501569e8bec1c97ddc1257e25ec1149bc2b50e9.tar.gz"
-      SHA1 "5c6966904fa5d28b7ea86194ef2fb4ce68fbdb59"
+      URL  "https://github.com/koinos/koinos-exception-cpp/archive/ffaea66f80ea35df1e8b1eb87f9d93d8f3d7da77.tar.gz"
+      SHA1 "df6a8728a5f24d10e9366d139fdc74fae9597026"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
