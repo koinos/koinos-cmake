@@ -132,8 +132,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/util")
    )
 else()
    hunter_config(koinos_util
-      URL  "https://github.com/koinos/koinos-util-cpp/archive/refs/tags/test-tag-1.tar.gz"
-      SHA1 "9a1baa55b1f819ec91a33dee5a89b739d11939c8"
+      URL  "https://github.com/koinos/koinos-util-cpp/archive/e8c44e1ce4b6ba195e5939f517561a26cd50b77d.tar.gz"
+      SHA1 "6b18a2761c461f9fb5f3a0d4ef0a35b73cc66b85"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
