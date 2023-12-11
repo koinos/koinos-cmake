@@ -117,8 +117,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/log")
    )
 else()
    hunter_config(koinos_log
-      URL  "https://github.com/koinos/koinos-log-cpp/archive/fb0a09dda1f124bb98471c63ff426da98a619f4c.tar.gz"
-      SHA1 "b1654b1c921cd3eb9ab2bcc74dc8fdb11ba88ce4"
+      URL  "https://github.com/koinos/koinos-log-cpp/archive/ee9c799b639960c8a8465fe61bb4ca894ae7a862.tar.gz"
+      SHA1 "4afd97d0e1af5c203feb5b9580261aee804556f0"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
@@ -147,8 +147,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/proto")
    )
 else()
    hunter_config(koinos_proto
-      URL  "https://github.com/koinos/koinos-proto-cpp/archive/16fa52a3e29a52edef42e9228b50f5b5035db10b.tar.gz"
-      SHA1 "d867e1e3a079eea078f2fa1f501edebd13efe23e"
+      URL  "https://github.com/koinos/koinos-proto-cpp/archive/e075a92360b9e6b30a6a5c92760080d7ab64b3d7.tar.gz"
+      SHA1 "4e11cccf11cb8c6ca651c9ccd2efc7e018e82c1c"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
