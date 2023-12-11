@@ -117,8 +117,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/log")
    )
 else()
    hunter_config(koinos_log
-      URL  "https://github.com/koinos/koinos-log-cpp/archive/89b59cd48bd4e41ca1d377890af1de3d393f60f8.tar.gz"
-      SHA1 "165c4ccf8c7f1ac2d03c450fbc9ed415447e35f9"
+      URL  "https://github.com/koinos/koinos-log-cpp/archive/fb0a09dda1f124bb98471c63ff426da98a619f4c.tar.gz"
+      SHA1 "b1654b1c921cd3eb9ab2bcc74dc8fdb11ba88ce4"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
