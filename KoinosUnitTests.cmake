@@ -71,10 +71,6 @@ function(koinos_parse_unit_tests RESULT)
 endfunction()
 
 function(koinos_add_test _name)
-	if(NOT BUILD_TESTING)
-		return()
-	endif()
-
 	# parse arguments
 	set(_nowhere)
 	set(_curdest _nowhere)
