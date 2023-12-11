@@ -177,8 +177,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/crypto")
    )
 else()
    hunter_config(koinos_crypto
-      URL  "https://github.com/koinos/koinos-crypto-cpp/archive/2f91acfd683b824439b9844095cdc2e89f371037.tar.gz"
-      SHA1 "88a3d6f6a6d029aa287f85acb4a878dc844818b1"
+      URL  "https://github.com/koinos/koinos-crypto-cpp/archive/807d37bb591fca3cbc311eebbfea6c38a05196cf.tar.gz"
+      SHA1 "293b9df4d6a02e1b315ca9cd342288df92fb3461"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
