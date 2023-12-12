@@ -11,7 +11,10 @@ function(koinos_install)
       message(FATAL_ERROR "A non-existent or invalid target has been passed to koinos_install(): ${TARGET}")
     endif()
 
-    set_target_properties(${TARGET} PROPERTIES PREFIX "libkoinos_")
+    get_target_property(TARGET_TYPE <target> TYPE)
+    if (NOT TARGET_TYPE STREQUAL "EXECUTABLE")
+      set_target_properties(${TARGET} PROPERTIES PREFIX "libkoinos_")
+    endif()
   endforeach()
 
   include(GNUInstallDirs)
