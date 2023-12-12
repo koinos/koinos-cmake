@@ -117,8 +117,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/log")
    )
 else()
    hunter_config(koinos_log
-      URL  "https://github.com/koinos/koinos-log-cpp/archive/ee9c799b639960c8a8465fe61bb4ca894ae7a862.tar.gz"
-      SHA1 "4afd97d0e1af5c203feb5b9580261aee804556f0"
+      URL  "https://github.com/koinos/koinos-log-cpp/archive/d45b58b730cba2573e6098c3cdeb8f27a70645b2.tar.gz"
+      SHA1 "9e7e27f81dd5d057d0981f070c17daeccf50d0de"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
@@ -132,8 +132,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/util")
    )
 else()
    hunter_config(koinos_util
-      URL  "https://github.com/koinos/koinos-util-cpp/archive/e8c44e1ce4b6ba195e5939f517561a26cd50b77d.tar.gz"
-      SHA1 "6b18a2761c461f9fb5f3a0d4ef0a35b73cc66b85"
+      URL  "https://github.com/koinos/koinos-util-cpp/archive/52b725d55d6f86343e7a188dbaf62176ac7d16ef.tar.gz"
+      SHA1 "571a7927754b08300606f70b7e20b61ec22ec041"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
@@ -147,8 +147,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/proto")
    )
 else()
    hunter_config(koinos_proto
-      URL  "https://github.com/koinos/koinos-proto-cpp/archive/e075a92360b9e6b30a6a5c92760080d7ab64b3d7.tar.gz"
-      SHA1 "4e11cccf11cb8c6ca651c9ccd2efc7e018e82c1c"
+      URL  "https://github.com/koinos/koinos-proto-cpp/archive/975fe35ce313aea5691204355ba647dc421748e1.tar.gz"
+      SHA1 "8abc0c1975e3c1cc7bf8f4075037df1d229ae1ad"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
@@ -162,7 +162,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/exception")
    )
 else()
    hunter_config(koinos_exception
-      URL  "https://github.com/koinos/koinos-exception-cpp/archive/ffaea66f80ea35df1e8b1eb87f9d93d8f3d7da77.tar.gz"
+      URL  "https://github.com/koinos/koinos-exception-cpp/archive/d6f32b1448224081cdc9085f535c27e542141e83.tar.gz"
       SHA1 "df6a8728a5f24d10e9366d139fdc74fae9597026"
       CMAKE_ARGS
          BUILD_TESTING=OFF
@@ -177,8 +177,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/crypto")
    )
 else()
    hunter_config(koinos_crypto
-      URL  "https://github.com/koinos/koinos-crypto-cpp/archive/807d37bb591fca3cbc311eebbfea6c38a05196cf.tar.gz"
-      SHA1 "293b9df4d6a02e1b315ca9cd342288df92fb3461"
+      URL  "https://github.com/koinos/koinos-crypto-cpp/archive/72a3c65c89f129e3cb8d673092f7c5c176da70ba.tar.gz"
+      SHA1 "9cc2b52ba4d530bf26eed57169a3e8a4d63743a4"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
