@@ -70,7 +70,7 @@ hunter_config(ethash
 
 
 hunter_config(gRPC
-   VERSION ${HUNTER_gRPC_VERSION}
+   VERSION 1.31.0-p0
    CMAKE_ARGS
       CMAKE_POSITION_INDEPENDENT_CODE=ON
       CMAKE_CXX_STANDARD=20
