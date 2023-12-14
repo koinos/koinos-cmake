@@ -20,3 +20,33 @@ else()
   # lots of warnings and all warnings as errors
   add_compile_options(-Werror -Wno-unknown-pragmas)
 endif()
+
+if (SANITIZER MATCHES "Address")
+  message(STATUS "Sanitizer configuration type: ${SANITIZER}")
+  add_compile_options(
+    -fsanitize=address
+    -fsanitize=undefined
+    -fsanitize=cfi
+    -flto
+    -fno-sanitize-recover=all)
+  add_link_options(
+    -fsanitize=address
+    -fsanitize=undefined
+    -fsanitize=cfi
+    -flto
+    -fno-sanitize-recover=all)
+elseif(SANITIZER MATCHES "Stack")
+  message(STATUS "Sanitizer configuration type: ${SANITIZER}")
+  add_compile_options(
+    -fsanitize=safe-stack)
+  add_link_options(
+    -fsanitize=safe-stack)
+elseif(SANITIZER MATCHES "Thread")
+  message(STATUS "Sanitizer configuration type: ${SANITIZER}")
+  add_compile_options(
+    -fsanitize=thread)
+  add_link_options(
+    -fsanitize=thread)
+elseif(NOT SANITIZER MATCHES "None")
+  message(FATAL_ERROR "Unknown value for option SANITIZER: '${SANITIZER}'. Must be None, Address, Stack, or Thread.")
+endif()
