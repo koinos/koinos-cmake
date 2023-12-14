@@ -177,8 +177,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/crypto")
    )
 else()
    hunter_config(koinos_crypto
-      URL  "https://github.com/koinos/koinos-crypto-cpp/archive/c211673bf064ff1acf7358107b710381347f4111.tar.gz"
-      SHA1 "4d473e89b2b3622433a4a73915d9f3b3b7cb6c34"
+      URL  "https://github.com/koinos/koinos-crypto-cpp/archive/34312c98bfe07304b6bb87219c17ac691a09c758.tar.gz"
+      SHA1 "57b18f02a10b6ca43fdeb8e58059171b27814dbc"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
@@ -192,8 +192,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/mq")
    )
 else()
    hunter_config(koinos_mq
-      URL  "https://github.com/koinos/koinos-mq-cpp/archive/89e9ba5c986fb4308a7a3e9bdafedcfbc980bcfc.tar.gz"
-      SHA1 "4f7d1f5d0cb2844d9c3ff2d7fa0eaac780eecc98"
+      URL  "https://github.com/koinos/koinos-mq-cpp/archive/f0e9df75913c38c678d635037b875b01b41e9984.tar.gz"
+      SHA1 "2fe4edd30c050a0a597dca98244736047c940fde"
       CMAKE_ARGS
          BUILD_TESTING=OFF
    )
