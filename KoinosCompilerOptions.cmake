@@ -26,14 +26,14 @@ if (SANITIZER MATCHES "Address")
   add_compile_options(
     -fsanitize=address
     -fsanitize=undefined
-    -fsanitize=cfi
-    -flto
+#    -fsanitize=cfi
+#    -flto
     -fno-sanitize-recover=all)
   add_link_options(
     -fsanitize=address
     -fsanitize=undefined
-    -fsanitize=cfi
-    -flto
+#    -fsanitize=cfi
+#    -flto
     -fno-sanitize-recover=all)
 elseif(SANITIZER MATCHES "Stack")
   message(STATUS "Sanitizer configuration type: ${SANITIZER}")
