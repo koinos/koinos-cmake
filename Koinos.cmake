@@ -18,8 +18,8 @@ set(HUNTER_PASSWORDS_PATH "${CMAKE_CURRENT_LIST_DIR}/Hunter/passwords.cmake"
 include(HunterGate)
 
 HunterGate(
-  URL "https://github.com/cpp-pm/hunter/archive/v0.25.3.tar.gz"
-  SHA1 "0dfbc2cb5c4cf7e83533733bdfd2125ff96680cb"
+  URL "https://github.com/cpp-pm/hunter/archive/v0.25.5.tar.gz"
+  SHA1 "a20151e4c0740ee7d0f9994476856d813cdead29"
   FILEPATH "${CMAKE_CURRENT_LIST_DIR}/Hunter/config.cmake"
 )
 
