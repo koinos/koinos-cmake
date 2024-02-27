@@ -152,8 +152,8 @@ hunter_config(koinos_mq
 )
 
 hunter_config(koinos_state_db
-   URL  "https://github.com/koinos/koinos-state-db-cpp/archive/8e9d50ed51389363d3b3fc989c3374c27ecb3534.tar.gz"
-   SHA1 "cf64ee62873e17a1146cd77d8c155bf0d9340ac9"
+   URL  "https://github.com/koinos/koinos-state-db-cpp/archive/d6eeec64a9cc14b289fa0fd58980ff1160745b2c.tar.gz"
+   SHA1 "95792438a0185fc5020ef2a5c11cce439e94accd"
    CMAKE_ARGS
       BUILD_TESTS=OFF
 )
