@@ -15,8 +15,8 @@ hunter_config(Protobuf
 )
 
 hunter_config(rocksdb
-   URL "https://github.com/facebook/rocksdb/archive/v6.15.2.tar.gz"
-   SHA1 "daf7ef3946fd39c910acaaa57789af8515b39251"
+   URL "https://github.com/facebook/rocksdb/archive/v8.8.1.tar.gz"
+   SHA1 "ef3e82eb750013c9fec5220911213609613776d7"
    CMAKE_ARGS
       WITH_TESTS=OFF
       WITH_TOOLS=OFF
@@ -64,7 +64,7 @@ hunter_config(ethash
    URL "https://github.com/chfast/ethash/archive/refs/tags/v1.0.1.tar.gz"
    SHA1 "e8dabf60ce215b6763191ffd0ac835b89b7de5e0"
    CMAKE_ARGS
-      CMAKE_CXX_STANDARD=17
+      CMAKE_CXX_STANDARD=20
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
@@ -73,7 +73,7 @@ hunter_config(gRPC
    VERSION 1.31.0-p0
    CMAKE_ARGS
       CMAKE_POSITION_INDEPENDENT_CODE=ON
-      CMAKE_CXX_STANDARD=17
+      CMAKE_CXX_STANDARD=20
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
@@ -81,7 +81,7 @@ hunter_config(abseil
    VERSION ${HUNTER_abseil_VERSION}
    CMAKE_ARGS
       CMAKE_POSITION_INDEPENDENT_CODE=ON
-      CMAKE_CXX_STANDARD=17
+      CMAKE_CXX_STANDARD=20
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
@@ -89,7 +89,7 @@ hunter_config(re2
    VERSION ${HUNTER_re2_VERSION}
    CMAKE_ARGS
       CMAKE_POSITION_INDEPENDENT_CODE=ON
-      CMAKE_CXX_STANDARD=17
+      CMAKE_CXX_STANDARD=20
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
@@ -97,7 +97,7 @@ hunter_config(c-ares
    VERSION ${HUNTER_c-ares_VERSION}
    CMAKE_ARGS
       CMAKE_POSITION_INDEPENDENT_CODE=ON
-      CMAKE_CXX_STANDARD=17
+      CMAKE_CXX_STANDARD=20
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
@@ -105,55 +105,111 @@ hunter_config(ZLIB
    VERSION ${HUNTER_ZLIB_VERSION}
    CMAKE_ARGS
       CMAKE_POSITION_INDEPENDENT_CODE=ON
-      CMAKE_CXX_STANDARD=17
+      CMAKE_CXX_STANDARD=20
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
-hunter_config(koinos_log
-   URL  "https://github.com/koinos/koinos-log-cpp/archive/89b59cd48bd4e41ca1d377890af1de3d393f60f8.tar.gz"
-   SHA1 "165c4ccf8c7f1ac2d03c450fbc9ed415447e35f9"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/log")
+   hunter_config(koinos_log
+      GIT_SUBMODULE "external/log"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+else()
+   hunter_config(koinos_log
+      URL  "https://github.com/koinos/koinos-log-cpp/archive/d45b58b730cba2573e6098c3cdeb8f27a70645b2.tar.gz"
+      SHA1 "9e7e27f81dd5d057d0981f070c17daeccf50d0de"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+endif()
 
-hunter_config(koinos_util
-   URL  "https://github.com/koinos/koinos-util-cpp/archive/dd3e15f0b08a99082b736b901bb78c0af4ed1982.tar.gz"
-   SHA1 "e5b475c10885dc5426c16a3e1122267b4a1668e1"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/util")
+   hunter_config(koinos_util
+      GIT_SUBMODULE "external/util"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+else()
+   hunter_config(koinos_util
+      URL  "https://github.com/koinos/koinos-util-cpp/archive/b0ea6d7f954d83381316cb19469669d3f9d610ab.tar.gz"
+      SHA1 "95f62a9236e970fdfc7a6a2315fcff32225b3c27"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+endif()
 
-hunter_config(koinos_proto
-   URL  "https://github.com/koinos/koinos-proto-cpp/archive/db90e99d6f8997861db6083efb8d0805bcd51d48.tar.gz"
-   SHA1 "366952245578b37bc9991e0994b7585334de7d95"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/proto")
+   hunter_config(koinos_proto
+      GIT_SUBMODULE "external/proto"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+else()
+   hunter_config(koinos_proto
+      URL  "https://github.com/koinos/koinos-proto-cpp/archive/ad0100b1e195ec069043923f94e22edac0dbacc2.tar.gz"
+      SHA1 "86f0f8e198188bb53755c92a28b4b179e1066868"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+endif()
 
-hunter_config(koinos_exception
-   URL  "https://github.com/koinos/koinos-exception-cpp/archive/5501569e8bec1c97ddc1257e25ec1149bc2b50e9.tar.gz"
-   SHA1 "5c6966904fa5d28b7ea86194ef2fb4ce68fbdb59"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/exception")
+   hunter_config(koinos_exception
+      GIT_SUBMODULE "external/exception"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+else()
+   hunter_config(koinos_exception
+      URL  "https://github.com/koinos/koinos-exception-cpp/archive/477b8c0e1d829fd82f33518f56de6376b745fd68.tar.gz"
+      SHA1 "e59eee6ffbe348c6f50e2b1bb15339c30ca56c37"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+endif()
 
-hunter_config(koinos_crypto
-   URL  "https://github.com/koinos/koinos-crypto-cpp/archive/2f91acfd683b824439b9844095cdc2e89f371037.tar.gz"
-   SHA1 "88a3d6f6a6d029aa287f85acb4a878dc844818b1"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/crypto")
+   hunter_config(koinos_crypto
+      GIT_SUBMODULE "external/crypto"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+else()
+   hunter_config(koinos_crypto
+      URL  "https://github.com/koinos/koinos-crypto-cpp/archive/34312c98bfe07304b6bb87219c17ac691a09c758.tar.gz"
+      SHA1 "57b18f02a10b6ca43fdeb8e58059171b27814dbc"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+endif()
 
-hunter_config(koinos_mq
-   URL  "https://github.com/koinos/koinos-mq-cpp/archive/f5cdac05a46f9a3e5b8310559f6520d9b53ca9ca.tar.gz"
-   SHA1 "342a62bfa72531a6defc5ace36efec0a095cf002"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/mq")
+   hunter_config(koinos_mq
+      GIT_SUBMODULE "external/mq"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+else()
+   hunter_config(koinos_mq
+      URL  "https://github.com/koinos/koinos-mq-cpp/archive/f0e9df75913c38c678d635037b875b01b41e9984.tar.gz"
+      SHA1 "2fe4edd30c050a0a597dca98244736047c940fde"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+endif()
 
-hunter_config(koinos_state_db
-   URL  "https://github.com/koinos/koinos-state-db-cpp/archive/d6eeec64a9cc14b289fa0fd58980ff1160745b2c.tar.gz"
-   SHA1 "95792438a0185fc5020ef2a5c11cce439e94accd"
-   CMAKE_ARGS
-      BUILD_TESTS=OFF
-)
+if (EXISTS "${CMAKE_SOURCE_DIR}/external/state_db")
+   hunter_config(koinos_state_db
+      GIT_SUBMODULE "external/state_db"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+else()
+   hunter_config(koinos_state_db
+      URL  "https://github.com/koinos/koinos-state-db-cpp/archive/8e9d50ed51389363d3b3fc989c3374c27ecb3534.tar.gz"
+      SHA1 "cf64ee62873e17a1146cd77d8c155bf0d9340ac9"
+      CMAKE_ARGS
+         BUILD_TESTING=OFF
+   )
+endif()

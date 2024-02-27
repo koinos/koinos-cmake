@@ -1,4 +1,4 @@
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_VISIBILITY_PRESET hidden)
@@ -19,4 +19,30 @@ if (MSVC)
 else()
   # lots of warnings and all warnings as errors
   add_compile_options(-Werror -Wno-unknown-pragmas)
+endif()
+
+if (SANITIZER MATCHES "Address")
+  message(STATUS "Sanitizer configuration type: ${SANITIZER}")
+  add_compile_options(
+    -fsanitize=address
+    -fsanitize=undefined
+    -fno-sanitize-recover=all)
+  add_link_options(
+    -fsanitize=address
+    -fsanitize=undefined
+    -fno-sanitize-recover=all)
+elseif(SANITIZER MATCHES "Stack")
+  message(STATUS "Sanitizer configuration type: ${SANITIZER}")
+  add_compile_options(
+    -fsanitize=safe-stack)
+  add_link_options(
+    -fsanitize=safe-stack)
+elseif(SANITIZER MATCHES "Thread")
+  message(STATUS "Sanitizer configuration type: ${SANITIZER}")
+  add_compile_options(
+    -fsanitize=thread)
+  add_link_options(
+    -fsanitize=thread)
+elseif(NOT SANITIZER MATCHES "None")
+  message(FATAL_ERROR "Unknown value for option SANITIZER: '${SANITIZER}'. Must be None, Address, Stack, or Thread.")
 endif()
