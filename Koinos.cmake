@@ -5,6 +5,7 @@ option(FORCE_COLORED_OUTPUT "Always produce ANSI-colored output (GNU/Clang only)
 option(HUNTER_RUN_UPLOAD "Upload Hunter packages to binary cache server" OFF)
 option(COVERAGE "Run code coverage" OFF)
 option(BUILD_TESTING "Build tests" ON)
+option(BUILD_EXAMPLES "Build examples" ON)
 
 set(SANITIZER "None" CACHE STRING "Sanitizer build type, options are: None Address Stack Thread")
 set_property(CACHE SANITIZER PROPERTY STRINGS None Address Stack Thread)
