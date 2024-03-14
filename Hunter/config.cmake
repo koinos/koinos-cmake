@@ -114,6 +114,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/log")
       GIT_SUBMODULE "external/log"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 else()
    hunter_config(koinos_log
@@ -121,6 +122,7 @@ else()
       SHA1 "ad694efa89eab3dbe7b34912f163f981968af487"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 endif()
 
@@ -129,6 +131,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/util")
       GIT_SUBMODULE "external/util"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 else()
    hunter_config(koinos_util
@@ -136,6 +139,7 @@ else()
       SHA1 "4c051ccf98d28d2b282c3201bff695ca3076a13d"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 endif()
 
@@ -144,6 +148,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/proto")
       GIT_SUBMODULE "external/proto"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 else()
    hunter_config(koinos_proto
@@ -151,6 +156,7 @@ else()
       SHA1 "13e2e170acc6a6d61cbd2c611ecde69f36428c5f"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 endif()
 
@@ -159,6 +165,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/exception")
       GIT_SUBMODULE "external/exception"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 else()
    hunter_config(koinos_exception
@@ -166,6 +173,7 @@ else()
       SHA1 "e4aafdf57a7890aa312f35055a2485840ba7f9ee"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 endif()
 
@@ -174,6 +182,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/crypto")
       GIT_SUBMODULE "external/crypto"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 else()
    hunter_config(koinos_crypto
@@ -181,6 +190,7 @@ else()
       SHA1 "d9888dfa3387f527c6d50ac146354c035cfdf30b"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 endif()
 
@@ -189,6 +199,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/mq")
       GIT_SUBMODULE "external/mq"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 else()
    hunter_config(koinos_mq
@@ -196,6 +207,7 @@ else()
       SHA1 "4471a63e975a14e38ad1a75d0399bd89df7ee870"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 endif()
 
@@ -204,6 +216,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/state_db")
       GIT_SUBMODULE "external/state_db"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 else()
    hunter_config(koinos_state_db
@@ -211,5 +224,6 @@ else()
       SHA1 "9a5375c465f40ba4dcbac739bc2590614ad8b302"
       CMAKE_ARGS
          BUILD_TESTING=OFF
+         BUILD_EXAMPLES=OFF
    )
 endif()
