@@ -152,8 +152,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/proto")
    )
 else()
    hunter_config(koinos_proto
-      URL  "https://github.com/koinos/koinos-proto-cpp/archive/v2.0.1.tar.gz"
-      SHA1 "116610b7d208703038926b314aa8ca80475d377a"
+      URL  "https://github.com/koinos/koinos-proto-cpp/archive/v2.0.2.tar.gz"
+      SHA1 "7bc6d3c109fcb3922a2094686239e748607653fc"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
