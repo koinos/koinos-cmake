@@ -1,5 +1,6 @@
 hunter_config(Boost
-   VERSION ${HUNTER_Boost_VERSION}
+   URL  "https://archives.boost.io/release/1.83.0/source/boost_1_83_0.tar.bz2"
+   SHA1 "75b1f569134401d178ad2aaf97a2993898dd7ee3"
    CMAKE_ARGS
       USE_CONFIG_FROM_BOOST=ON
       Boost_USE_STATIC_LIBS=ON
@@ -24,6 +25,7 @@ hunter_config(rocksdb
       WITH_BENCHMARK_TOOLS=OFF
       WITH_CORE_TOOLS=OFF
       WITH_GFLAGS=OFF
+      WITH_LIBURING=OFF
       PORTABLE=ON
       FAIL_ON_WARNINGS=OFF
       ROCKSDB_BUILD_SHARED=OFF
