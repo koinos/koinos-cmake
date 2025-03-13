@@ -39,8 +39,8 @@ hunter_config(fizzy
 )
 
 hunter_config(rabbitmq-c
-   URL "https://github.com/alanxz/rabbitmq-c/archive/b8e5f43b082c5399bf1ee723c3fd3c19cecd843e.tar.gz"
-   SHA1 "35d4ce3e4f0a5348de64bbed25c6e1df72da2594"
+   URL "https://github.com/alanxz/rabbitmq-c/archive/84b81cd97a1b5515d3d4b304796680da24c666d8.tar.gz"
+   SHA1 "2382d9bfe04894429b57f0c5a1b54fc1135ea80f"
    CMAKE_ARGS
       ENABLE_SSL_SUPPORT=OFF
 )
@@ -205,8 +205,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/mq")
    )
 else()
    hunter_config(koinos_mq
-      URL  "https://github.com/koinos/koinos-mq-cpp/archive/v1.0.3.tar.gz"
-      SHA1 "c7e9ec6569e98c5f8ab952775169fe83c95acab5"
+      URL  "https://github.com/koinos/koinos-mq-cpp/archive/v1.0.4.tar.gz"
+      SHA1 "611e82dee15d3459c9030a90e0ccc41be9073c89"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
