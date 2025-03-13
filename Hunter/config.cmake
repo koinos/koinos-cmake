@@ -206,7 +206,7 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/mq")
 else()
    hunter_config(koinos_mq
       URL  "https://github.com/koinos/koinos-mq-cpp/archive/v1.0.4.tar.gz"
-      SHA1 "611e82dee15d3459c9030a90e0ccc41be9073c89"
+      SHA1 "7db35a75a949f45ee44c0820ff309cdff5191866"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
