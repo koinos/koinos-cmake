@@ -71,8 +71,8 @@ hunter_config(ethash
 )
 
 hunter_config(iwasm
-   URL "https://github.com/bytecodealliance/wasm-micro-runtime/archive/WAMR-2.2.0.tar.gz"
-   SHA1 "5bcc34fde757226e28cf5e8ab7cd9dcb7976b52c"
+   URL "https://github.com/bytecodealliance/wasm-micro-runtime/archive/c30e65ba5d2bb4c1b96e23dfaa74e498fc3ac3a3.tar.gz"
+   SHA1 "05eaf0c7aa751b775482498a2a2563466a6ebb49"
 )
 
 hunter_config(gRPC
