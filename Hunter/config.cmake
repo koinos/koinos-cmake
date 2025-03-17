@@ -70,6 +70,10 @@ hunter_config(ethash
       CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
+hunter_config(iwasm
+   URL "https://github.com/bytecodealliance/wasm-micro-runtime/archive/WAMR-2.2.0.tar.gz"
+   SHA1 "5bcc34fde757226e28cf5e8ab7cd9dcb7976b52c"
+)
 
 hunter_config(gRPC
    VERSION 1.31.0-p0
