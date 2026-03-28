@@ -29,13 +29,17 @@ hunter_config(rocksdb
       PORTABLE=ON
       FAIL_ON_WARNINGS=OFF
       ROCKSDB_BUILD_SHARED=OFF
-      CMAKE_CXX_FLAGS=-fvisibility=hidden
-      CMAKE_C_FLAGS=-fvisibility=hidden
+      # macos-arm64-patch: PORTABLE=ON may not detect ARM CRC support via toolchain;
+      # force the ARM8 CRC+crypto march so rocksdb's crc32c uses the hardware path.
+      CMAKE_CXX_FLAGS=-fvisibility=hidden -march=armv8-a+crc+crypto -Wno-unused-function
+      CMAKE_C_FLAGS=-fvisibility=hidden -march=armv8-a+crc+crypto -Wno-unused-function
 )
 
 hunter_config(fizzy
-   URL "https://github.com/koinos/fizzy/archive/b9bf7feaa8009a3d4f4bdd49245a5cd55d122055.tar.gz"
-   SHA1 "d4e682dca504a831b30274fbec0b154b8b7adfd1"
+   # macos-arm64-patch: char_traits<uint8_t> deprecated in libc++ 16+ (error in Xcode 26+)
+   # PR: https://github.com/koinos/fizzy/pull/1 (pending)
+   URL "https://github.com/pgarciagon/fizzy/archive/7cdd7350f3a524bbbf1a5793212e8b8f102e3ec7.tar.gz"
+   SHA1 "b8a7e09a54a94cc55b584c5db9a7efc6bd433acf"
 )
 
 hunter_config(rabbitmq-c
@@ -53,6 +57,11 @@ hunter_config(libsecp256k1
 hunter_config(libsecp256k1-vrf
    URL "https://github.com/koinos/secp256k1-vrf/archive/db479e83be5685f652a9bafefaef77246fdf3bbe.tar.gz"
    SHA1 "62df75e061c4afd6f0548f1e8267cc3da6abee15"
+   CMAKE_ARGS
+      # macos-arm64-patch: Homebrew GMP on Apple Silicon lives under /opt/homebrew,
+      # not /usr/local; FindGMP.cmake does not search there by default.
+      GMP_LIBRARY=/opt/homebrew/lib/libgmp.dylib
+      GMP_INCLUDE_DIR=/opt/homebrew/include
 )
 
 hunter_config(yaml-cpp
@@ -85,6 +94,10 @@ hunter_config(abseil
       CMAKE_POSITION_INDEPENDENT_CODE=ON
       CMAKE_CXX_STANDARD=20
       CMAKE_CXX_STANDARD_REQUIRED=ON
+      # macos-arm64-patch: ABSL_USE_MSA/ABSL_USE_SSSE3 cmake detection can emit
+      # x86-only flags (-maes, -msse4.1) that break ARM64 builds. The SSE copts
+      # are listed in GENERATED_AbseilCopts.cmake; we strip them via a patch script.
+      ABSL_USE_GOOGLETEST_HEAD=OFF
 )
 
 hunter_config(re2
@@ -104,7 +117,10 @@ hunter_config(c-ares
 )
 
 hunter_config(ZLIB
-   VERSION ${HUNTER_ZLIB_VERSION}
+   # macos-arm64-patch: fdopen() macro conflict with macOS stdio.h in zutil.h
+   # PR: https://github.com/cpp-pm/zlib/pull/1 (pending)
+   URL "https://github.com/pgarciagon/zlib/archive/600934d9020e2822aad40ddd05b775e73585e952.tar.gz"
+   SHA1 "d3587b03fecfa49813fe59019d5797577137896d"
    CMAKE_ARGS
       CMAKE_POSITION_INDEPENDENT_CODE=ON
       CMAKE_CXX_STANDARD=20
