@@ -187,8 +187,11 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/exception")
    )
 else()
    hunter_config(koinos_exception
-      URL  "https://github.com/koinos/koinos-exception-cpp/archive/v1.0.2.tar.gz"
-      SHA1 "e7cf9e149268ee78b1b0c342eccd40ce9354a3ad"
+      # darwin-patched: BOOST_STACKTRACE_GNU_SOURCE_NOT_REQUIRED in exception.hpp
+      # (local-only pin; do not commit — source: knodel scripts/build-native-mac.sh
+      # ensure_patched_koinos_exception_tarball)
+      URL  "file:///Users/pgarcgo/code/knodel/.native-build-cache/koinos-exception-1.0.2-darwin-patched.tar.gz"
+      SHA1 "2baf0f74d564614a27ce6e6e1d55f630a06e3fb3"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
@@ -238,8 +241,11 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/state_db")
    )
 else()
    hunter_config(koinos_state_db
-      URL  "https://github.com/koinos/koinos-state-db-cpp/archive/v1.1.2.tar.gz"
-      SHA1 "2c865d9256e639a2cd8227c04dff7483bd9558d3"
+      # tombstone-fix pin (plan Phase 3): v1.2.1 adds remove_object_preserve_tombstone
+      # and pending_merkle_root; replace with upstream koinos/koinos-state-db-cpp
+      # once PR-1 merges
+      URL  "https://github.com/pgarciagon/koinos-state-db-cpp/archive/refs/tags/v1.2.1.tar.gz"
+      SHA1 "001dbf9a8c62397e31ca2a8b6b98d04da62c0f3b"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
