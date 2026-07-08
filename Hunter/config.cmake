@@ -29,13 +29,17 @@ hunter_config(rocksdb
       PORTABLE=ON
       FAIL_ON_WARNINGS=OFF
       ROCKSDB_BUILD_SHARED=OFF
-      CMAKE_CXX_FLAGS=-fvisibility=hidden
-      CMAKE_C_FLAGS=-fvisibility=hidden
+      # macos-arm64-patch: PORTABLE=ON may not detect ARM CRC support via toolchain;
+      # force the ARM8 CRC+crypto march so rocksdb's crc32c uses the hardware path.
+      CMAKE_CXX_FLAGS=-fvisibility=hidden -march=armv8-a+crc+crypto -Wno-unused-function
+      CMAKE_C_FLAGS=-fvisibility=hidden -march=armv8-a+crc+crypto -Wno-unused-function
 )
 
 hunter_config(fizzy
-   URL "https://github.com/koinos/fizzy/archive/b9bf7feaa8009a3d4f4bdd49245a5cd55d122055.tar.gz"
-   SHA1 "d4e682dca504a831b30274fbec0b154b8b7adfd1"
+   # macos-arm64-patch: char_traits<uint8_t> deprecated in libc++ 16+ (error in Xcode 26+)
+   # PR: https://github.com/koinos/fizzy/pull/1 (pending)
+   URL "https://github.com/pgarciagon/fizzy/archive/7cdd7350f3a524bbbf1a5793212e8b8f102e3ec7.tar.gz"
+   SHA1 "b8a7e09a54a94cc55b584c5db9a7efc6bd433acf"
 )
 
 hunter_config(rabbitmq-c
@@ -53,6 +57,11 @@ hunter_config(libsecp256k1
 hunter_config(libsecp256k1-vrf
    URL "https://github.com/koinos/secp256k1-vrf/archive/db479e83be5685f652a9bafefaef77246fdf3bbe.tar.gz"
    SHA1 "62df75e061c4afd6f0548f1e8267cc3da6abee15"
+   CMAKE_ARGS
+      # macos-arm64-patch: Homebrew GMP on Apple Silicon lives under /opt/homebrew,
+      # not /usr/local; FindGMP.cmake does not search there by default.
+      GMP_LIBRARY=/opt/homebrew/lib/libgmp.dylib
+      GMP_INCLUDE_DIR=/opt/homebrew/include
 )
 
 hunter_config(yaml-cpp
@@ -85,6 +94,10 @@ hunter_config(abseil
       CMAKE_POSITION_INDEPENDENT_CODE=ON
       CMAKE_CXX_STANDARD=20
       CMAKE_CXX_STANDARD_REQUIRED=ON
+      # macos-arm64-patch: ABSL_USE_MSA/ABSL_USE_SSSE3 cmake detection can emit
+      # x86-only flags (-maes, -msse4.1) that break ARM64 builds. The SSE copts
+      # are listed in GENERATED_AbseilCopts.cmake; we strip them via a patch script.
+      ABSL_USE_GOOGLETEST_HEAD=OFF
 )
 
 hunter_config(re2
@@ -104,7 +117,10 @@ hunter_config(c-ares
 )
 
 hunter_config(ZLIB
-   VERSION ${HUNTER_ZLIB_VERSION}
+   # macos-arm64-patch: fdopen() macro conflict with macOS stdio.h in zutil.h
+   # PR: https://github.com/cpp-pm/zlib/pull/1 (pending)
+   URL "https://github.com/pgarciagon/zlib/archive/600934d9020e2822aad40ddd05b775e73585e952.tar.gz"
+   SHA1 "d3587b03fecfa49813fe59019d5797577137896d"
    CMAKE_ARGS
       CMAKE_POSITION_INDEPENDENT_CODE=ON
       CMAKE_CXX_STANDARD=20
@@ -171,8 +187,11 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/exception")
    )
 else()
    hunter_config(koinos_exception
-      URL  "https://github.com/koinos/koinos-exception-cpp/archive/v1.0.2.tar.gz"
-      SHA1 "e7cf9e149268ee78b1b0c342eccd40ce9354a3ad"
+      # darwin-patched: BOOST_STACKTRACE_GNU_SOURCE_NOT_REQUIRED in exception.hpp
+      # (local-only pin; do not commit — source: knodel scripts/build-native-mac.sh
+      # ensure_patched_koinos_exception_tarball)
+      URL  "file:///Users/pgarcgo/code/knodel/.native-build-cache/koinos-exception-1.0.2-darwin-patched.tar.gz"
+      SHA1 "2baf0f74d564614a27ce6e6e1d55f630a06e3fb3"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
@@ -222,8 +241,11 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/state_db")
    )
 else()
    hunter_config(koinos_state_db
-      URL  "https://github.com/koinos/koinos-state-db-cpp/archive/v1.1.2.tar.gz"
-      SHA1 "2c865d9256e639a2cd8227c04dff7483bd9558d3"
+      # tombstone-fix pin (plan Phase 3): v1.2.1 adds remove_object_preserve_tombstone
+      # and pending_merkle_root; replace with upstream koinos/koinos-state-db-cpp
+      # once PR-1 merges
+      URL  "https://github.com/pgarciagon/koinos-state-db-cpp/archive/refs/tags/v1.2.1.tar.gz"
+      SHA1 "001dbf9a8c62397e31ca2a8b6b98d04da62c0f3b"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
