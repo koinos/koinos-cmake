@@ -222,8 +222,8 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/state_db")
    )
 else()
    hunter_config(koinos_state_db
-      URL  "https://github.com/koinos/koinos-state-db-cpp/archive/v1.1.2.tar.gz"
-      SHA1 "2c865d9256e639a2cd8227c04dff7483bd9558d3"
+      URL  "https://github.com/koinos/koinos-state-db-cpp/archive/v1.2.1.tar.gz"
+      SHA1 "001dbf9a8c62397e31ca2a8b6b98d04da62c0f3b"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
