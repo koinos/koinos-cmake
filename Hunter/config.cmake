@@ -187,11 +187,14 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/external/exception")
    )
 else()
    hunter_config(koinos_exception
-      # darwin-patched: BOOST_STACKTRACE_GNU_SOURCE_NOT_REQUIRED in exception.hpp
-      # (local-only pin; do not commit — source: knodel scripts/build-native-mac.sh
-      # ensure_patched_koinos_exception_tarball)
-      URL  "file:///Users/pgarcgo/code/knodel/.native-build-cache/koinos-exception-1.0.2-darwin-patched.tar.gz"
-      SHA1 "2baf0f74d564614a27ce6e6e1d55f630a06e3fb3"
+      # macos-arm64-patch: koinos_exception v1.0.2 fails to build on macOS/Apple
+      # Clang because Boost.Stacktrace's default backend errors that it requires
+      # _GNU_SOURCE for _Unwind_Backtrace (available without it on this platform).
+      # The fork declares BOOST_STACKTRACE_GNU_SOURCE_NOT_REQUIRED at the top of
+      # exception.hpp. Revert to the canonical koinos/koinos-exception-cpp URL
+      # once koinos/koinos-exception-cpp PR is merged.
+      URL  "https://github.com/pgarciagon/koinos-exception-cpp/archive/c42492f272a245e1830ae1e72d55b175997bab9a.tar.gz"
+      SHA1 "0c4ceb3559856ae4227734793b0f473a5ef89df0"
       CMAKE_ARGS
          BUILD_TESTING=OFF
          BUILD_EXAMPLES=OFF
