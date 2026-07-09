@@ -40,14 +40,6 @@ hunter_config(fizzy
    # PR: https://github.com/koinos/fizzy/pull/1 (pending)
    URL "https://github.com/pgarciagon/fizzy/archive/7cdd7350f3a524bbbf1a5793212e8b8f102e3ec7.tar.gz"
    SHA1 "b8a7e09a54a94cc55b584c5db9a7efc6bd433acf"
-   # fizzy defaults to C++17; koinos consumers (KoinosCompilerOptions) build at
-   # C++20. That standard mismatch gives fizzy's public types (Module and its
-   # nested std containers) a different ABI/layout across the fizzy/consumer
-   # boundary, corrupting memory at runtime (observed as EXC_BAD_ACCESS in
-   # fizzy::Module::~Module). Build fizzy at the same standard as its consumers.
-   CMAKE_ARGS
-      CMAKE_CXX_STANDARD=20
-      CMAKE_CXX_STANDARD_REQUIRED=ON
 )
 
 hunter_config(rabbitmq-c
